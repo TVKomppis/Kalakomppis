@@ -68,8 +68,8 @@ h1 .g{background:linear-gradient(100deg,#3FE0B5 10%,#F2C230 90%);-webkit-backgro
 @keyframes wag{0%,100%{transform:rotate(-13deg)}50%{transform:rotate(13deg)}}
 @keyframes swim{0%{transform:translateX(0)}12%{transform:translateX(10px)}to{transform:translateX(-120vw)}}
 @keyframes swimin{from{transform:translateX(120vw)}to{transform:translateX(0)}}
-.bubbles span{position:absolute;bottom:-20px;border-radius:50%;border:1.5px solid rgba(191,245,230,.35);animation:rise linear infinite}
-@keyframes rise{to{transform:translateY(calc(-1 * var(--rise,110vh))) translateX(20px);opacity:0}}
+.bubbles span{position:absolute;bottom:-20px;border-radius:50%;border:1.5px solid rgba(191,245,230,.35);animation:rise linear infinite;opacity:0}
+@keyframes rise{0%{transform:translateY(0) translateX(0);opacity:0}6%{opacity:.95}50%{transform:translateY(calc(-.5 * var(--rise,110vh))) translateX(14px)}90%{opacity:.9}100%{transform:translateY(calc(-1 * var(--rise,110vh))) translateX(-6px);opacity:0}}
 .waves{position:absolute;left:0;right:0;bottom:-1px;z-index:1;line-height:0}
 .waves svg{width:200%;height:110px;animation:drift 18s linear infinite}
 .waves svg+svg{position:absolute;left:0;bottom:0;opacity:.5;animation-duration:28s;animation-direction:reverse}
@@ -275,6 +275,8 @@ footer a{color:#fff;text-decoration:none;opacity:.85}footer a:hover{opacity:1;te
 .carr:hover{background:var(--teal)}
 .carr[data-d="-1"]{left:24px}.carr[data-d="1"]{right:24px}
 .tmore2{display:none}
+.chip{display:none}
+@keyframes chipf{50%{transform:translateY(-8px)}}
 @media(min-width:981px){
  .hero{padding-bottom:120px!important}
  .bento{grid-template-columns:1fr;gap:28px;max-width:1000px;margin:0 auto}
@@ -289,6 +291,15 @@ footer a{color:#fff;text-decoration:none;opacity:.85}footer a:hover{opacity:1;te
  .b3 .b3in{display:contents}.b3 .bsteps{margin-top:22px}
  .b4{grid-template-columns:1fr 1.25fr;height:auto;padding-bottom:48px;border-color:#D6D1EE}
  .b4 .pondw{grid-column:2;grid-row:1/5;margin:0}.b4 .pond{margin-top:0}
+ .chip{display:block;position:absolute;z-index:3;background:#fff;color:var(--deep);font-weight:700;font-size:15px;padding:10px 16px;border-radius:14px;box-shadow:0 14px 30px rgba(4,34,42,.22);white-space:nowrap;animation:chipf 4s ease-in-out infinite}
+ .b1 .shotw{transform:rotate(4deg);margin-top:6px}
+ .bx>.chip{grid-column:auto;grid-row:auto}
+ .b1 .chip{right:300px;top:250px}
+ .b2{grid-template-columns:290px 1fr}.b2>*{grid-column:2}.b2 .shotw{grid-column:1;transform:rotate(-4deg);margin-top:18px}
+ .b2 .chip{left:290px;top:300px;animation-delay:-1.3s}
+ .b3 .shotw.s3{transform:rotate(3deg);margin-top:30px}
+ .b3 .chip{right:300px;top:330px;animation-delay:-2.6s}
+ .b4{grid-template-columns:1.25fr 1fr}.b4>*{grid-column:2}.b4 .pondw{grid-column:1}
  .carr{display:block}
  .tfade span{display:none}
  .tmore2{display:block;text-align:right;margin:18px 0 0;font-weight:800;font-size:19px;color:#fff}
@@ -337,11 +348,11 @@ footer a{color:#fff;text-decoration:none;opacity:.85}footer a:hover{opacity:1;te
  <h2 class="reveal" data-t="whyH">Neljä syytä ottaa komppis mukaan</h2>
  <p class="sub reveal" data-t="whyS">Jokainen reissu opettaa jotain. KalaKomppis muistaa sen puolestasi ja muuttaa kokemukset suosituksiksi.</p>
  <div class="bento">
-  <article class="bx b1 reveal"><div class="txt"><div class="num">01</div><h3 data-t="c2h">Suositukset vesistön mukaan</h3><p data-t="c2p">Saat suosituksia muun muassa viehevalinnoista, väreistä ja olosuhteista, jotta kalaonni olisi mahdollisimman suuri valitsemassasi vesistössä.</p><div class="mini"><span data-t="c2a">Viehe ja väri</span><span data-t="c2b">Uintityyli</span><span data-t="c2c">Kalaa / tunti</span></div></div><div class="shotw"><img src="img/fi/suositus.jpg" data-img="suositus" alt="" loading="lazy"></div></article>
-  <article class="bx b2 reveal"><div class="num">02</div><h3 data-t="c1h">Reissut ja saaliit talteen</h3><p data-t="c1p">Pidä kirjaa kalastusreissuistasi ja saaliistasi: paikka, aika, sää, vesi, kalat, mitat ja kuvat.</p><div class="shotw"><img src="img/fi/loki.jpg" data-img="loki" alt="" loading="lazy"></div></article>
+  <article class="bx b1 reveal"><div class="txt"><div class="num">01</div><h3 data-t="c2h">Suositukset vesistön mukaan</h3><p data-t="c2p">Saat suosituksia muun muassa viehevalinnoista, väreistä ja olosuhteista, jotta kalaonni olisi mahdollisimman suuri valitsemassasi vesistössä.</p><div class="mini"><span data-t="c2a">Viehe ja väri</span><span data-t="c2b">Uintityyli</span><span data-t="c2c">Kalaa / tunti</span></div></div><div class="shotw"><img src="img/fi/suositus.jpg" data-img="suositus" alt="" loading="lazy"></div><span class="chip" data-t="ch1">🎯 Paras viehe: Tail spinner</span></article>
+  <article class="bx b2 reveal"><div class="num">02</div><h3 data-t="c1h">Reissut ja saaliit talteen</h3><p data-t="c1p">Pidä kirjaa kalastusreissuistasi ja saaliistasi: paikka, aika, sää, vesi, kalat, mitat ja kuvat.</p><div class="shotw"><img src="img/fi/loki.jpg" data-img="loki" alt="" loading="lazy"></div><span class="chip" data-t="ch2">🐟 Ahven 35 cm kirjattu</span></article>
   <article class="bx b3 reveal"><div class="num">03</div><h3 data-t="c3h">Virtuaalinen kalapakki</h3><p data-t="c3p">Rakenna oma virtuaalinen kalapakki ja seuraa, miten vieheet tuottavat tulosta – tai eivät.</p>
    <div class="b3in"><ol class="bsteps"><li data-t="c3s1">Rakenna vieheistäsi virtuaalinen versio väreineen, painoineen ja mittoineen.</li><li data-t="c3s3">Reissulla valitset, millä vieheelläsi kalastit.</li></ol>
-   <div class="shotw s3"><img src="img/fi/vieheet-tyypit.jpg" data-img="vieheet-tyypit" alt="" loading="lazy"></div></div></article>
+   <div class="shotw s3"><img src="img/fi/vieheet-tyypit.jpg" data-img="vieheet-tyypit" alt="" loading="lazy"></div></div><span class="chip" data-t="ch3">🪝 18 viehetyyppiä</span></article>
   <article class="bx b4 reveal"><div class="num">04</div><h3 data-t="c4h">Kalakoulu</h3><p data-t="c4p">Opi tuntemaan eri kalalajit. Kalakoulu esittelee 27 Pohjolan lajia: tuntomerkit, koon ja iän, ravinnon sekä sen, miten kala elää eri vuodenaikoina.</p>
    <div class="pondw"><div class="pond" id="pond">POND</div><div class="pfade"></div></div></article>
  </div>

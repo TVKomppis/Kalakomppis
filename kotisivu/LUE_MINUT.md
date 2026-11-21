@@ -52,3 +52,5 @@ Liitä tämä zip uuteen chattiin ja kirjoita: "Jatketaan KalaKomppis-kotisivua.
 - "200+ trophya odottaa saajaansa" PC:llä esimerkkien alla oikealla (`.tmore2`), mobiilissa kuten ennen.
 - Karuselli: hiiren veto korjattu (pointer capture, kuvien raahaus estetty, kierto ei hyppää), nuolinapit PC:llä.
 - Kuplat nousevat koko heron korkeuden (JS asettaa `--rise`), määrä skaalautuu heron korkeuden mukaan.
+- PC: Neljä syytä -puhelimet siksakissa (01 oikea, 02 vasen, 03 oikea, 04 kalaruudukko vasemmalla), kallistus ±3–4°, kelluvat tarrat (data-t ch1–ch3). Kuplien ulkonäkö palautettu, nousevat silti koko heron korkeuden.
+- KalaKeijo-animaatio: `tyokalut/kalakeijo.svg` (ei julkaista, firebase.json ignore). Näytetään jsDelivrin kautta.
