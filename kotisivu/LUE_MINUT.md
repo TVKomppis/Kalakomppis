@@ -45,3 +45,10 @@ Liitä tämä zip uuteen chattiin ja kirjoita: "Jatketaan KalaKomppis-kotisivua.
 - Kalakoulu 4 riviä asteittaisella sumennuksella. Kalenterikuvassa 21.11.: Jigi: shad (Ahven 35 cm) + Dropshot.
 - Tasomerkit sovelluksen ylärivin tyyliin (metalliset laatat + 👑🥇🥈🥉👻). Toinen esimerkkitrophy: Kalakaupan sponsori (Kirous).
 - Esittely-karuselli: pienemmät puhelimet (200 px / mobiili 165 px), jatkuva tasainen liuku (requestAnimationFrame, saumaton silmukka), pyyhkäisy/veto keskeyttää 2,5 s.
+
+## 21.11. ilta (KalaKeijo)
+- Korjattu ylimääräinen `</div>`, jonka takia aaltoanimaatio piirtyi näytön alareunaan tekstien päälle. Aallot ovat nyt herossa.
+- PC (≥981 px): Neljä syytä -kortit allekkain levyinä riveinä, puhelimet samankokoisia (290×440). Mobiili ennallaan.
+- "200+ trophya odottaa saajaansa" PC:llä esimerkkien alla oikealla (`.tmore2`), mobiilissa kuten ennen.
+- Karuselli: hiiren veto korjattu (pointer capture, kuvien raahaus estetty, kierto ei hyppää), nuolinapit PC:llä.
+- Kuplat nousevat koko heron korkeuden (JS asettaa `--rise`), määrä skaalautuu heron korkeuden mukaan.

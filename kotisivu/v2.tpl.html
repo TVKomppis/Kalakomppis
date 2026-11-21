@@ -69,7 +69,7 @@ h1 .g{background:linear-gradient(100deg,#3FE0B5 10%,#F2C230 90%);-webkit-backgro
 @keyframes swim{0%{transform:translateX(0)}12%{transform:translateX(10px)}to{transform:translateX(-120vw)}}
 @keyframes swimin{from{transform:translateX(120vw)}to{transform:translateX(0)}}
 .bubbles span{position:absolute;bottom:-20px;border-radius:50%;border:1.5px solid rgba(191,245,230,.35);animation:rise linear infinite}
-@keyframes rise{to{transform:translateY(-110vh) translateX(20px);opacity:0}}
+@keyframes rise{to{transform:translateY(calc(-1 * var(--rise,110vh))) translateX(20px);opacity:0}}
 .waves{position:absolute;left:0;right:0;bottom:-1px;z-index:1;line-height:0}
 .waves svg{width:200%;height:110px;animation:drift 18s linear infinite}
 .waves svg+svg{position:absolute;left:0;bottom:0;opacity:.5;animation-duration:28s;animation-direction:reverse}
@@ -266,6 +266,33 @@ footer a{color:#fff;text-decoration:none;opacity:.85}footer a:hover{opacity:1;te
  .duo{height:500px}.duo .phone{width:200px}.duo .phone .sc{height:400px}.duo .phone.a{left:2%}.duo .phone.b{right:2%}
  .b1 .shotw{width:86%}
 }
+
+/* 21.11 ilta: PC-korjaukset */
+.mq{user-select:none;-webkit-user-select:none;touch-action:pan-x pan-y}
+.mq img{-webkit-user-drag:none;pointer-events:none}
+.mqw{position:relative}
+.carr{display:none;position:absolute;top:200px;z-index:3;width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:rgba(4,34,42,.75);color:#fff;font:400 30px/1 Outfit,sans-serif;cursor:pointer;backdrop-filter:blur(6px)}
+.carr:hover{background:var(--teal)}
+.carr[data-d="-1"]{left:24px}.carr[data-d="1"]{right:24px}
+.tmore2{display:none}
+@media(min-width:981px){
+ .hero{padding-bottom:120px!important}
+ .bento{grid-template-columns:1fr;gap:28px;max-width:1000px;margin:0 auto}
+ .bx{display:grid;grid-template-columns:1fr 290px;grid-template-rows:auto auto auto 1fr;column-gap:56px;align-content:start;min-height:0;height:470px;padding:48px 56px 0;border:1.5px solid #CFDDDA;box-shadow:0 14px 34px rgba(4,34,42,.08)}
+ .b1,.b2,.b3,.b4{grid-column:auto;grid-row:auto}
+ .bx>*{grid-column:1}
+ .bx .shotw,.b1 .shotw,.b2 .shotw,.shotw.s3{grid-column:2;grid-row:1/5;position:relative;inset:auto;width:290px;height:440px;margin:0;transform:none;align-self:start;border-radius:30px;border:7px solid #0B1A1E}
+ .bx .shotw img{width:100%;height:auto;display:block}
+ .b1 .txt{max-width:none;grid-row:1/5}
+ .b1{background:linear-gradient(165deg,#DDF3EC,#F3FBF8)}
+ .b2{border:0}.b2 .shotw{border-color:#1A3238}
+ .b3 .b3in{display:contents}.b3 .bsteps{margin-top:22px}
+ .b4{grid-template-columns:1fr 1.25fr;height:auto;padding-bottom:48px;border-color:#D6D1EE}
+ .b4 .pondw{grid-column:2;grid-row:1/5;margin:0}.b4 .pond{margin-top:0}
+ .carr{display:block}
+ .tfade span{display:none}
+ .tmore2{display:block;text-align:right;margin:18px 0 0;font-weight:800;font-size:19px;color:#fff}
+}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
 </style>
 </head>
@@ -297,7 +324,6 @@ footer a{color:#fff;text-decoration:none;opacity:.85}footer a:hover{opacity:1;te
     <div class="bub" id="bub" aria-live="polite"><small data-t="says">Ahven Aatu</small><span id="quip"></span></div>
    </div>
   </div>
-</div>
  </div>
  <div class="waves" aria-hidden="true">
   <svg viewBox="0 0 2880 110" preserveAspectRatio="none"><path d="M0 60C240 20 480 100 720 60S1200 20 1440 60 1920 100 2160 60 2640 20 2880 60V110H0Z" fill="#F4F8F7"/></svg>
@@ -339,6 +365,7 @@ footer a{color:#fff;text-decoration:none;opacity:.85}footer a:hover{opacity:1;te
   <div class="tc neg bl3 reveal" aria-hidden="true"><div class="e">👻</div><div><b data-t="t6">Kirottu paikka</b><span data-t="t6d">Tee kolme tyhjää reissua peräkkäin samassa paikassa. Paikka on kirottu.</span><i data-t="tne">Kirous</i></div></div>
   <div class="tfade"><span data-t="tmore">200+ trophya odottaa saajaansa</span></div>
  </div>
+ <p class="tmore2" data-t="tmore">200+ trophya odottaa saajaansa</p>
 </div></section>
 
 
@@ -361,7 +388,7 @@ footer a{color:#fff;text-decoration:none;opacity:.85}footer a:hover{opacity:1;te
  <h2 data-t="fH">Kurkista sovellukseen.</h2>
  <p class="sub" data-t="fS">Esittely liukuu itsestään. Pyyhkäise tai vedä kuvia kumpaan suuntaan tahansa.</p>
 </div>
- <div class="mq" id="mq"><div class="mqt" id="mqt">SLIDES</div></div><div class="cdots" id="cdots"></div>
+ <div class="mqw"><button class="carr" data-d="-1" aria-label="Edellinen">&#8249;</button><div class="mq" id="mq"><div class="mqt" id="mqt">SLIDES</div></div><button class="carr" data-d="1" aria-label="Seuraava">&#8250;</button></div><div class="cdots" id="cdots"></div>
 </section>
 
 <footer><div class="w">
@@ -400,7 +427,9 @@ const A=document.getElementById('aatu');let busy=false;
 function swim(){if(busy)return;busy=true;A.classList.add('go');setTimeout(()=>{A.classList.remove('go');A.classList.add('back');quip(true);setTimeout(()=>{A.classList.remove('back');busy=false},1400)},2300)}
 A.onclick=swim;A.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();swim()}};
 // bubbles
-const bb=document.getElementById('bubbles');for(let i=0;i<14;i++){const s=document.createElement('span'),z=4+Math.random()*12;s.style.cssText=`left:${Math.random()*100}%;width:${z}px;height:${z}px;animation-duration:${9+Math.random()*12}s;animation-delay:${-Math.random()*20}s`;bb.appendChild(s)}
+const bb=document.getElementById('bubbles'),hero=document.getElementById('top');
+function bubbles(){const H=hero.offsetHeight+40,k=Math.max(1,H/800);bb.style.setProperty('--rise',H+'px');bb.innerHTML='';const n=Math.round(14*k);for(let i=0;i<n;i++){const s=document.createElement('span'),z=4+Math.random()*12,d=(9+Math.random()*12)*k;s.style.cssText=`left:${Math.random()*100}%;width:${z}px;height:${z}px;animation-duration:${d}s;animation-delay:${-Math.random()*d}s`;bb.appendChild(s)}}
+bubbles();let bw=innerWidth;addEventListener('resize',()=>{if(Math.abs(innerWidth-bw)>80){bw=innerWidth;bubbles()}});
 // nav
 const nav=document.getElementById('nav');const onS=()=>nav.classList.toggle('solid',scrollY>30);addEventListener('scroll',onS,{passive:true});onS();
 // reveal
@@ -410,17 +439,27 @@ document.querySelectorAll('.reveal').forEach(e=>io.observe(e));
 const mq=document.getElementById('mq'),mt=document.getElementById('mqt');document.getElementById('cdots').remove();
 mt.innerHTML+=mt.innerHTML;[...mt.children].slice(mt.children.length/2).forEach(s=>s.setAttribute('aria-hidden','true'));
 let hold=0,pos=0,last=0;const SPD=0.035;// px per ms
-['touchstart','pointerdown','wheel'].forEach(e=>mq.addEventListener(e,()=>hold=performance.now(),{passive:true}));
-mq.addEventListener('touchmove',()=>hold=performance.now(),{passive:true});
-let dx=null,sl0=0;mq.addEventListener('pointerdown',e=>{if(e.pointerType!=='mouse')return;dx=e.clientX;sl0=mq.scrollLeft;mq.classList.add('drag')});
-addEventListener('pointermove',e=>{if(dx===null)return;mq.scrollLeft=sl0-(e.clientX-dx);hold=performance.now()});
-addEventListener('pointerup',()=>{dx=null;mq.classList.remove('drag')});
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const touch=()=>{hold=performance.now();pos=mq.scrollLeft};
+['touchstart','touchmove','wheel'].forEach(e=>mq.addEventListener(e,touch,{passive:true}));
+mq.querySelectorAll('img').forEach(i=>i.draggable=false);
+let dx=null,sl0=0,moved=0;
+mq.addEventListener('pointerdown',e=>{if(e.pointerType!=='mouse'||e.button!==0)return;e.preventDefault();dx=e.clientX;sl0=mq.scrollLeft;moved=0;mq.classList.add('drag');mq.setPointerCapture(e.pointerId);touch()});
+mq.addEventListener('pointermove',e=>{if(dx===null)return;const d=e.clientX-dx;moved=Math.max(moved,Math.abs(d));mq.scrollLeft=sl0-d;touch()});
+const endDrag=()=>{if(dx===null)return;dx=null;mq.classList.remove('drag');touch()};
+mq.addEventListener('pointerup',endDrag);mq.addEventListener('pointercancel',endDrag);mq.addEventListener('lostpointercapture',endDrag);
+mq.addEventListener('click',e=>{if(moved>5){e.preventDefault();e.stopPropagation()}},true);
+const STEP=()=>(mt.children[0].getBoundingClientRect().width+parseFloat(getComputedStyle(mt).columnGap||26));
+let anim=null;function glide(dir){const from=mq.scrollLeft,to=from+dir*STEP(),t0=performance.now();anim={from,to,t0};touch()}
+document.querySelectorAll('.carr').forEach(b=>b.onclick=()=>glide(+b.dataset.d));
 const half=()=>mt.scrollWidth/2;
+function wrap(){const h=half();let sh=0;if(mq.scrollLeft>=h)sh=-h;else if(mq.scrollLeft<=1)sh=h;if(sh){mq.scrollLeft+=sh;sl0+=sh;pos+=sh;if(anim){anim.from+=sh;anim.to+=sh}}}
 function tick(t){const dt=last?Math.min(t-last,50):0;last=t;
- if(t-hold>2500&&!document.hidden&&!RM){pos=mq.scrollLeft+SPD*dt;mq.scrollLeft=pos}
- const h=half();if(mq.scrollLeft>=h)mq.scrollLeft-=h;else if(mq.scrollLeft<=0&&hold>0&&t-hold<2500)mq.scrollLeft+=h;
- requestAnimationFrame(tick)}
-const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;requestAnimationFrame(tick);
+ if(anim){const p=Math.min(1,(t-anim.t0)/450),e=1-Math.pow(1-p,3);mq.scrollLeft=pos=anim.from+(anim.to-anim.from)*e;hold=t;if(p>=1)anim=null}
+ else if(dx===null&&t-hold>2500&&!document.hidden&&!RM){pos+=SPD*dt;mq.scrollLeft=pos}
+ wrap();requestAnimationFrame(tick)}
+pos=mq.scrollLeft=1;requestAnimationFrame(tick);
+
 // re-apply language to duplicated slides
 setLang(L);
 </script>
