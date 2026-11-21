@@ -54,3 +54,4 @@ Liitä tämä zip uuteen chattiin ja kirjoita: "Jatketaan KalaKomppis-kotisivua.
 - Kuplat nousevat koko heron korkeuden (JS asettaa `--rise`), määrä skaalautuu heron korkeuden mukaan.
 - PC: Neljä syytä -puhelimet siksakissa (01 oikea, 02 vasen, 03 oikea, 04 kalaruudukko vasemmalla), kallistus ±3–4°, kelluvat tarrat (data-t ch1–ch3). Kuplien ulkonäkö palautettu, nousevat silti koko heron korkeuden.
 - KalaKeijo-animaatio: `tyokalut/kalakeijo.svg` (ei julkaista, firebase.json ignore). Näytetään jsDelivrin kautta.
+- Tarrat (ch1–ch3) poistettu. Kortissa 02 PC:llä Aatu + puhekupla (data-t gateq): "Aloita kalareissusi Komppiksen kanssa. Odottelen sillä välin… ehkä nälkäisenä, ehkä en." Piilotettu alle 981 px.
